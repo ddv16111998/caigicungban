@@ -1,0 +1,9 @@
+{
+    "Auth": true,
+    "Payment": true,
+    "Product": true,
+    "Order": true,
+    "Banner": true,
+    "Category": true,
+    "Menu": true
+}
