@@ -5,5 +5,6 @@
     "Order": true,
     "Banner": true,
     "Category": true,
-    "Menu": true
+    "Menu": true,
+    "Core": true
 }

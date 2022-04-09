@@ -13,11 +13,10 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    dd(app('MyUser'));
-});
+//Route::get('/', function () {
+//});
 
-Route::get('/payment', 'Customer\PaymentController@payment');
+Route::get('/', 'Customer\PaymentController@payment');
 Route::get('/vnpay_callback', 'Customer\PaymentController@paymentCallBack');
 
 Route::get('category','Admin\CategoryController@index');

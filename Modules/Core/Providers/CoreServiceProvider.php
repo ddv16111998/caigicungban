@@ -1,29 +1,21 @@
 <?php
 
-namespace Modules\Payment\Providers;
+namespace Modules\Core\Providers;
 
 use Illuminate\Support\ServiceProvider;
 use Illuminate\Database\Eloquent\Factory;
-use Modules\Payment\Services\Entities\Cod;
-use Modules\Payment\Services\Entities\Contracts\CodInterface;
-use Modules\Payment\Services\Entities\Contracts\MomoInterface;
-use Modules\Payment\Services\Entities\Contracts\PaymentInterface;
-use Modules\Payment\Services\Entities\Contracts\VnpayInterface;
-use Modules\Payment\Services\Entities\Momo;
-use Modules\Payment\Services\Entities\Vnpay;
-use Modules\Payment\Services\Payment;
 
-class PaymentServiceProvider extends ServiceProvider
+class CoreServiceProvider extends ServiceProvider
 {
     /**
      * @var string $moduleName
      */
-    protected $moduleName = 'Payment';
+    protected $moduleName = 'Core';
 
     /**
      * @var string $moduleNameLower
      */
-    protected $moduleNameLower = 'payment';
+    protected $moduleNameLower = 'core';
 
     /**
      * Boot the application events.
@@ -36,7 +28,6 @@ class PaymentServiceProvider extends ServiceProvider
         $this->registerConfig();
         $this->registerViews();
         $this->loadMigrationsFrom(module_path($this->moduleName, 'Database/Migrations'));
-        $this->bindings();
     }
 
     /**
@@ -47,16 +38,6 @@ class PaymentServiceProvider extends ServiceProvider
     public function register()
     {
         $this->app->register(RouteServiceProvider::class);
-    }
-
-    public function bindings()
-    {
-        $this->app->bind(CodInterface::class, Cod::class);
-        $this->app->bind(MomoInterface::class, Momo::class);
-        $this->app->bind(VnpayInterface::class, Vnpay::class);
-        $this->app->bind(PaymentInterface::class, function (){
-            return new Payment(request()->input('payment-method'));
-        });
     }
 
     /**

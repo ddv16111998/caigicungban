@@ -174,6 +174,9 @@ return [
         // App\Providers\BroadcastServiceProvider::class,
         App\Providers\EventServiceProvider::class,
         App\Providers\RouteServiceProvider::class,
+
+        // module provider
+        \Modules\Core\Providers\CoreServiceProvider::class,
         \Modules\Auth\Providers\AuthServiceProvider::class,
         \Modules\Payment\Providers\PaymentServiceProvider::class,
         \Modules\Product\Providers\ProductServiceProvider::class,

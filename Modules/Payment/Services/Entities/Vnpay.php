@@ -1,10 +1,11 @@
 <?php
 
-namespace App\Services\Payment\Entities;
+namespace Modules\Payment\Services\Entities;
 
+use Modules\Payment\Services\Entities\Contracts\VnpayInterface;
 use function redirect;
 
-class Vnpay{
+class Vnpay implements VnpayInterface {
     public $vnpUrl = "https://sandbox.vnpayment.vn/paymentv2/vpcpay.html";
     public $vnpReturnUrl = "http://localhost:8000/vnpay_callback";
     public $vnp_TmnCode = "UDOPNWS1"; //Mã website tại VNPAY

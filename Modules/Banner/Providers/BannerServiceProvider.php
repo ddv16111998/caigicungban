@@ -2,11 +2,17 @@
 
 namespace Modules\Banner\Providers;
 
+use App\Repositories\BannerRepository;
 use Illuminate\Support\ServiceProvider;
 use Illuminate\Database\Eloquent\Factory;
+use Modules\Banner\Repositories\Contracts\BannerRepositoryInterface;
 
 class BannerServiceProvider extends ServiceProvider
 {
+
+    public $bindings = [
+        BannerRepositoryInterface::class => BannerRepository::class
+    ];
     /**
      * @var string $moduleName
      */
